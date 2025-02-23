@@ -1,23 +1,10 @@
-yangshun:
-  name: Yangshun Tay
-  title: Front End Engineer @ Facebook
-  url: https://github.com/yangshun
-  image_url: https://github.com/yangshun.png
-  page: true
-  socials:
-    x: yangshunz
-    github: yangshun
-
-slorber:
-  name: Sébastien Lorber
-  title: Docusaurus maintainer
-  url: https://sebastienlorber.com
-  image_url: https://github.com/slorber.png
+nicholas:
+  name: Nicholas Goh
+  title: AI Full Stack Engineer
+  url: https://nicholas-goh.com
+  image_url: https://avatars.githubusercontent.com/u/58037050?s=400&u=cc1cb1686de3cfbf92b95cd8b8bad22291c1a068&v=4
   page:
-    # customize the url of the author page at /blog/authors/<permalink>
-    permalink: '/all-sebastien-lorber-articles'
+    permalink: '/all-nicholas-goh-articles'
   socials:
-    x: sebastienlorber
-    linkedin: sebastienlorber
-    github: slorber
-    newsletter: https://thisweekinreact.com
+    linkedin: nicholas-goh-19ba1b194
+    github: NicholasGoh
