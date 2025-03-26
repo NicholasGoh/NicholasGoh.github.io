@@ -11,32 +11,30 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Easy to Use',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Data Science and AI',
+    Svg: require('@site/static/img/undraw_predictive_analytics.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        A strong foundation in data science and AI, with expertise in machine learning and data-driven solutions,
+        now informing my evolving focus.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: 'Agentic Orchestration',
+    Svg: require('@site/static/img/undraw_software_engineer.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        Experienced in designing and implementing agentic workflows, leveraging LLMs to enable autonomous decision-making and collaborative task execution.
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: 'Cloud Orchestration',
+    Svg: require('@site/static/img/undraw_cloud_hosting.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Skilled in provisioning and managing cloud resources using AWS and Terraform Infrastructure as Code (IaC)
       </>
     ),
   },
