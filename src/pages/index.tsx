@@ -36,8 +36,8 @@ export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={"AI Full Stack Engineer"}
-      description="Description will go into a meta tag in <head />">
+      title={siteConfig.tagline}
+      description="Personal website and blog of Nicholas Goh">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
