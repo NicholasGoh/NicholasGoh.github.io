@@ -54,7 +54,7 @@
 </ul>
 <!-- -->
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholasgoh.github.io/blog/customer-service-automation#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
-<p>Check out the <a href="https://nicholas-goh.com/use-cases/customer-service-automation/ui" target="_blank" rel="noopener noreferrer">demo</a> before we explore the challenges, technical details, and key insights.</p>
+<p>Check out the <a href="https://nicholas-goh.com/use-cases/customer-service/ui" target="_blank" rel="noopener noreferrer">demo</a> before we explore the challenges, technical details, and key insights.</p>
 <div style="width:640px;height:360px"></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="design-choices">Design Choices<a href="https://nicholasgoh.github.io/blog/customer-service-automation#design-choices" class="hash-link" aria-label="Direct link to Design Choices" title="Direct link to Design Choices">​</a></h2>
 <p>In the <a href="https://nicholasgoh.github.io/blog/etl-automation">previous blog</a>, prebuilt LangChain agents handled most of the orchestration. However, this no longer applies since no existing prebuilt solution fully fits this use case. A custom approach is needed to orchestrate how the Service and Booking assistants work together.</p>
