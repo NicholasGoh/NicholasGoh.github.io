@@ -42,6 +42,10 @@ const config: Config = {
     [
       'classic',
       {
+        gtag: {
+          trackingID: 'G-TECW05ZKH4',
+          anonymizeIP: true,
+        },
         docs: {
           sidebarPath: './sidebars.ts',
         },
