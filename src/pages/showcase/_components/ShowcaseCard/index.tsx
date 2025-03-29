@@ -77,6 +77,17 @@ function ShowcaseCard({ user }: { user: User }) {
           {user.tags.includes("favorite") && (
             <FavoriteIcon size="medium" style={{ marginRight: "0.25rem" }} />
           )}
+          {user.blog && (
+            <Link
+              href={user.blog}
+              className={clsx(
+                "button button--secondary button--sm",
+                styles.showcaseCardSrcBtn,
+              )}
+            >
+              <Translate id="showcase.card.sourceLink">blog</Translate>
+            </Link>
+          )}
           {user.source && (
             <Link
               href={user.source}

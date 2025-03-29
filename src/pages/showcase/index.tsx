@@ -16,9 +16,9 @@ import ShowcaseSearchBar from "@site/src/pages/showcase/_components/ShowcaseSear
 import ShowcaseCards from "./_components/ShowcaseCards";
 import ShowcaseFilters from "./_components/ShowcaseFilters";
 
-const TITLE = translate({ message: "Docusaurus Site Showcase" });
+const TITLE = translate({ message: "Project Showcase" });
 const DESCRIPTION = translate({
-  message: "List of websites people are building with Docusaurus",
+  message: "Links to the demos and blogs for the projects I’ve built",
 });
 const SUBMIT_URL = "https://github.com/facebook/docusaurus/discussions/7826";
 
@@ -27,11 +27,6 @@ function ShowcaseHeader() {
     <section className="margin-top--lg margin-bottom--lg text--center">
       <Heading as="h1">{TITLE}</Heading>
       <p>{DESCRIPTION}</p>
-      <Link className="button button--primary" to={SUBMIT_URL}>
-        <Translate id="showcase.header.button">
-          🙏 Please add your site
-        </Translate>
-      </Link>
     </section>
   );
 }

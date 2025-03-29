@@ -44,7 +44,7 @@ function HeadingFavorites() {
 function HeadingAllSites() {
   return (
     <Heading as="h2">
-      <Translate id="showcase.usersList.allUsers">All sites</Translate>
+      <Translate id="showcase.usersList.allUsers">All projects</Translate>
     </Heading>
   );
 }
@@ -83,9 +83,6 @@ export default function ShowcaseCards() {
     <section className="margin-top--lg margin-bottom--xl">
       {filteredUsers.length === sortedUsers.length ? (
         <>
-          <div className={styles.showcaseFavorite}>
-            <CardList heading={<HeadingFavorites />} items={favoriteUsers} />
-          </div>
           <div className="margin-top--lg">
             <CardList heading={<HeadingAllSites />} items={otherUsers} />
           </div>
