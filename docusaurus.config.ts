@@ -92,6 +92,7 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
+        { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://www.linkedin.com/in/nicholas-goh-19ba1b194/",
