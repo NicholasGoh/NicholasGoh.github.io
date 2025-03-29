@@ -5,6 +5,18 @@ import type * as Preset from "@docusaurus/preset-classic";
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
+  plugins: [
+    [
+      "@docusaurus/plugin-ideal-image",
+      {
+        quality: 70,
+        max: 1030, // max resized image's size.
+        min: 640, // min resized image's size. if original is lower, use that size.
+        steps: 2, // the max number of images generated between min and max (inclusive)
+        disableInDev: true,
+      },
+    ],
+  ],
   markdown: {
     mermaid: true,
   },
@@ -80,6 +92,7 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
+        { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         {
           href: "https://www.linkedin.com/in/nicholas-goh-19ba1b194/",
