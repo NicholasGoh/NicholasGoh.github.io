@@ -16,14 +16,13 @@ const config: Config = {
         disableInDev: true,
       },
     ],
-    [
-      "@dipakparmar/docusaurus-plugin-umami",
-      /** @type {import('@dipakparmar/docusaurus-plugin-umami').Options} */
-      {
-        websiteID: "00eadbae-add3-453e-aa6c-dde12cc2e23a", // Required
-        analyticsDomain: "https://cloud.umami.is", // Required
-      },
-    ],
+  ],
+  scripts: [
+    {
+      src: "https://cloud.umami.is/script.js",
+      "data-website-id": "00eadbae-add3-453e-aa6c-dde12cc2e23a",
+      defer: true,
+    },
   ],
   markdown: {
     mermaid: true,
