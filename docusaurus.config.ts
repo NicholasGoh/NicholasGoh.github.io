@@ -99,6 +99,11 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
+        {
+          to: "https://cloud.umami.is/share/oEUFjq6PCjBUfHU1/nicholas-goh.com",
+          label: "Analytics",
+          position: "left",
+        },
         { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         {
