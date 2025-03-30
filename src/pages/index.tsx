@@ -19,12 +19,19 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <a
+            className="button button--secondary button--lg margin-horiz--md"
+            href="https://flowcv.com/resume/hs2snijcw2oj"
+            target="_blank"
+          >
+            🌐 View Resume
+          </a>
+          <a
             className="button button--secondary button--lg"
             href="Nicholas-Goh-Resume.pdf"
             target="_blank"
             download={"Nicholas-Goh-Resume"}
           >
-            Resume
+            📥 Download Resume
           </a>
         </div>
       </div>
