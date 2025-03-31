@@ -19,7 +19,7 @@ function HomepageHeader() {
         <p className="hero__subtitle">{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <a
-            className="button button--secondary button--lg margin-horiz--md"
+            className="button button--secondary button--lg"
             href="https://flowcv.com/resume/hs2snijcw2oj"
             target="_blank"
           >
