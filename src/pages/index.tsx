@@ -20,6 +20,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <a
             className="button button--secondary button--lg"
+            data-umami-event="View Resume"
             href="https://flowcv.com/resume/hs2snijcw2oj"
             target="_blank"
           >
@@ -27,6 +28,7 @@ function HomepageHeader() {
           </a>
           <a
             className="button button--secondary button--lg"
+            data-umami-event="Download Resume"
             href="Nicholas-Goh-Resume.pdf"
             target="_blank"
             download={"Nicholas-Goh-Resume"}
