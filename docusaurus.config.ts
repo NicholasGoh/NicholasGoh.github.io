@@ -21,6 +21,7 @@ const config: Config = {
     {
       src: "https://cloud.umami.is/script.js",
       "data-website-id": "00eadbae-add3-453e-aa6c-dde12cc2e23a",
+      "data-domains": "nicholas-goh.com,nicholasgoh.github.io",
       defer: true,
     },
   ],
