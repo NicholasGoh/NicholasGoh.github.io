@@ -3,6 +3,9 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import Translate, { translate } from "@docusaurus/Translate";
+import Tweet from "@site/src/components/Tweet";
+import Tweets, { type TweetItem } from "@site/src/data/tweets";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
@@ -41,6 +44,32 @@ function HomepageHeader() {
   );
 }
 
+function TweetsSection() {
+  const tweetColumns: TweetItem[][] = [[], [], []];
+  Tweets.filter((tweet) => tweet.showOnHomepage).forEach((tweet, i) =>
+    tweetColumns[i % 3]!.push(tweet),
+  );
+
+  return (
+    <div className={clsx(styles.section, styles.sectionAlt)}>
+      <div className="container">
+        <Heading as="h2" className={clsx("margin-bottom--lg", "text--center")}>
+          <Translate>Loved by many engineers</Translate>
+        </Heading>
+        <div className={clsx("row", styles.tweetsSection)}>
+          {tweetColumns.map((tweetItems, i) => (
+            <div className="col col--4" key={i}>
+              {tweetItems.map((tweet) => (
+                <Tweet {...tweet} key={tweet.url} />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -51,6 +80,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <TweetsSection />
       </main>
     </Layout>
   );
