@@ -14,7 +14,6 @@ import styles from "./styles.module.css";
 
 export interface Props {
   url: string;
-  handle: string;
   name: string;
   content: ReactNode;
   date: string;
@@ -23,7 +22,6 @@ export interface Props {
 
 export default function Tweet({
   url,
-  handle,
   name,
   content,
   date,
@@ -36,14 +34,13 @@ export default function Tweet({
           <img
             alt={name}
             className="avatar__photo"
-            src={`https://unavatar.io/x/${handle}?fallback=https://github.com/${githubUsername}.png`}
+            src={`https://github.com/${githubUsername}.png`}
             width="48"
             height="48"
             loading="lazy"
           />
           <div className={clsx("avatar__intro", styles.tweetMeta)}>
             <strong className="avatar__name">{name}</strong>
-            <span>@{handle}</span>
           </div>
         </div>
       </div>
