@@ -54,7 +54,7 @@ function TweetsSection() {
     <div className={clsx(styles.section, styles.sectionAlt)}>
       <div className="container">
         <Heading as="h2" className={clsx("margin-bottom--lg", "text--center")}>
-          <Translate>Loved by many engineers</Translate>
+          <Translate>Recommendations</Translate>
         </Heading>
         <div className={clsx("row", styles.tweetsSection)}>
           {tweetColumns.map((tweetItems, i) => (
