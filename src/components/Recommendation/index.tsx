@@ -20,7 +20,7 @@ export interface Props {
   githubUsername: string;
 }
 
-export default function Tweet({
+export default function Recommendation({
   url,
   name,
   content,
@@ -28,7 +28,7 @@ export default function Tweet({
   githubUsername,
 }: Props): ReactNode {
   return (
-    <div className={clsx("card", styles.tweet)}>
+    <div className={clsx("card", styles.recommendation)}>
       <div className="card__header">
         <div className="avatar">
           <img
@@ -39,7 +39,7 @@ export default function Tweet({
             height="48"
             loading="lazy"
           />
-          <div className={clsx("avatar__intro", styles.tweetMeta)}>
+          <div className={clsx("avatar__intro", styles.recommendationMeta)}>
             <Link to={url}>
               <strong className="avatar__name">{name}</strong>
             </Link>
@@ -47,10 +47,14 @@ export default function Tweet({
         </div>
       </div>
 
-      <div className={clsx("card__body", styles.tweet)}>{content}</div>
+      <div className={clsx("card__body", styles.recommendation)}>{content}</div>
 
       <div className="card__footer">
-        <div className={clsx(styles.tweetMeta, styles.tweetDate)}>{date}</div>
+        <div
+          className={clsx(styles.recommendationMeta, styles.recommendationDate)}
+        >
+          {date}
+        </div>
       </div>
     </div>
   );

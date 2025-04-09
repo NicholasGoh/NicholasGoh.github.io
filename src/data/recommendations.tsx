@@ -9,13 +9,13 @@
 
 import React from "react";
 
-import type { Props as Tweet } from "../components/Tweet";
+import type { Props as Recommendation } from "../components/Recommendation";
 
-export type TweetItem = Tweet & {
+export type RecommendationItem = Recommendation & {
   showOnHomepage: boolean;
 };
 
-const TWEETS: TweetItem[] = [
+const TWEETS: RecommendationItem[] = [
   {
     url: "https://chinholin.com",
     name: "Chin-Ho Lin",

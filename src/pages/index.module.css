@@ -32,6 +32,6 @@
   background-color: var(--ifm-color-emphasis-100);
 }
 
-.tweetsSection > :global(.col) > * {
+.recommendationsSection > :global(.col) > * {
   margin-bottom: 2rem;
 }
