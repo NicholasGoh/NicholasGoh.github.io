@@ -23,3 +23,15 @@
   flex-wrap: wrap;
   gap: 1rem;
 }
+
+.section {
+  padding: 40px 0;
+}
+
+.sectionAlt {
+  background-color: var(--ifm-color-emphasis-100);
+}
+
+.recommendationsSection > :global(.col) > * {
+  margin-bottom: 2rem;
+}

@@ -3,6 +3,11 @@ import clsx from "clsx";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
+import Translate, { translate } from "@docusaurus/Translate";
+import Recommendation from "@site/src/components/Recommendation";
+import Recommendations, {
+  type RecommendationItem,
+} from "@site/src/data/recommendations";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
@@ -41,6 +46,34 @@ function HomepageHeader() {
   );
 }
 
+function RecommendationsSection() {
+  const recommendationColumns: RecommendationItem[][] = [[], [], []];
+  Recommendations.filter(
+    (recommendation) => recommendation.showOnHomepage,
+  ).forEach((recommendation, i) =>
+    recommendationColumns[i % 3]!.push(recommendation),
+  );
+
+  return (
+    <div className={clsx(styles.section, styles.sectionAlt)}>
+      <div className="container">
+        <Heading as="h2" className={clsx("margin-bottom--lg", "text--center")}>
+          <Translate>Recommendations</Translate>
+        </Heading>
+        <div className={clsx("row", styles.recommendationsSection)}>
+          {recommendationColumns.map((recommendationItems, i) => (
+            <div className="col col--4" key={i}>
+              {recommendationItems.map((recommendation) => (
+                <Recommendation {...recommendation} key={recommendation.url} />
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home(): ReactNode {
   const { siteConfig } = useDocusaurusContext();
   return (
@@ -51,6 +84,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <RecommendationsSection />
       </main>
     </Layout>
   );
