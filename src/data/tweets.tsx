@@ -17,19 +17,20 @@ export type TweetItem = Tweet & {
 
 const TWEETS: TweetItem[] = [
   {
-    url: "https://x.com/acemarke/status/1452725153998245891",
-    name: "Mark Erikson",
-    date: "Oct 26, 2021",
+    url: "https://chinholin.com",
+    name: "Chin-Ho Lin",
+    date: "Apr 09, 2025",
     content: (
       <>
-        We&apos;ve been using Docusaurus for all the Redux org docs sites for
-        the last couple years, and it&apos;s great! We&apos;ve been able to
-        focus on content, customize some presentation and features, and It Just
-        Works.
+        Nicholas is a fast learner who quickly identifies issues, conducts
+        thorough research, and efficiently finds solutions to ensure project
+        progress. He has been contributing to projects such as building LLM
+        microservices for concurrent calls and developing a centralized model
+        weight cache.
       </>
     ),
     showOnHomepage: true,
-    githubUsername: "markerikson",
+    githubUsername: "tainvecs",
   },
 ];
 
