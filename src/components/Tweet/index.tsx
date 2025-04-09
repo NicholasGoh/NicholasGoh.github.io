@@ -40,7 +40,9 @@ export default function Tweet({
             loading="lazy"
           />
           <div className={clsx("avatar__intro", styles.tweetMeta)}>
-            <strong className="avatar__name">{name}</strong>
+            <Link to={url}>
+              <strong className="avatar__name">{name}</strong>
+            </Link>
           </div>
         </div>
       </div>
@@ -48,9 +50,7 @@ export default function Tweet({
       <div className={clsx("card__body", styles.tweet)}>{content}</div>
 
       <div className="card__footer">
-        <Link className={clsx(styles.tweetMeta, styles.tweetDate)} to={url}>
-          {date}
-        </Link>
+        <div className={clsx(styles.tweetMeta, styles.tweetDate)}>{date}</div>
       </div>
     </div>
   );
