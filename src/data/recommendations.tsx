@@ -32,6 +32,27 @@ const TWEETS: RecommendationItem[] = [
     showOnHomepage: true,
     githubUsername: "tainvecs",
   },
+  {
+    url: "https://www.linkedin.com/in/leonseet/",
+    name: "Leon Seet",
+    date: "Apr 13, 2025",
+    content: (
+      <>
+        I highly recommend Nicholas based on our time working together. He
+        possesses a keen ability to identify operational inefficiencies and
+        implement solutions that result in tangible time and cost savings which
+        benefitted our development works. A standout contribution was his
+        development of a deployable LLM microservice tailored for our restricted
+        on-prem environment, which has helped accelerated development cycles
+        needing on-prem LLM capabilties. Furthermore, Nicholas is a
+        collaborative colleague with great expertise in advanced Bash
+        configurations which I have learnt a lot from. He would be a valuable
+        asset to any team.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "leonseet",
+  },
 ];
 
 export default TWEETS;
