@@ -9,12 +9,12 @@ import type { ReactNode, CSSProperties } from "react";
 import clsx from "clsx";
 import Translate from "@docusaurus/Translate";
 import FavoriteIcon from "@site/src/pages/showcase/_components/FavoriteIcon";
-import { Tags, TagList, type TagType } from "@site/src/data/users";
+import { Tags, TagList, type TagType } from "@site/src/data/projects";
 import Heading from "@theme/Heading";
 import ShowcaseTagSelect from "../ShowcaseTagSelect";
 import OperatorButton from "../OperatorButton";
 import ClearAllButton from "../ClearAllButton";
-import { useFilteredUsers, useSiteCountPlural } from "../../_utils";
+import { useFilteredProjects, useSiteCountPlural } from "../../_utils";
 
 import styles from "./styles.module.css";
 
@@ -75,14 +75,14 @@ function ShowcaseTagList() {
 }
 
 function HeadingText() {
-  const filteredUsers = useFilteredUsers();
+  const filteredProjects = useFilteredProjects();
   const siteCountPlural = useSiteCountPlural();
   return (
     <div className={styles.headingText}>
       <Heading as="h2">
         <Translate id="showcase.filters.title">Filters</Translate>
       </Heading>
-      <span>{siteCountPlural(filteredUsers.length)}</span>
+      <span>{siteCountPlural(filteredProjects.length)}</span>
     </div>
   );
 }

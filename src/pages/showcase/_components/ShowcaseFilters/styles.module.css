@@ -40,7 +40,7 @@
 }
 
 .tagListItem {
-  user-select: none;
+  project-select: none;
   white-space: nowrap;
   height: 32px;
   font-size: 0.8rem;
