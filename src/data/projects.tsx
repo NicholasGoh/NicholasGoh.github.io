@@ -42,12 +42,12 @@ export type TagType = "agenticworkflow" | "multiagents" | "rag";
 
 // Add sites to this list
 // prettier-ignore
-const Users: User[] = [
+const Projects: Project[] = [
   {
     title: "Agentic RAG",
     description: 'Agentic RAG: Designing, Building and the Key Considerations Behind It',
     preview: require('./showcase/agentic-rag.png'),
-    website: 'https://nicholas-goh.com/ui',
+    website: 'https://nicholas-goh.com/blog/agentic-rag#demo',
     blog: 'https://nicholas-goh.com/blog/agentic-rag',
     tags: ['agenticworkflow', 'rag'],
   },
@@ -55,7 +55,7 @@ const Users: User[] = [
     title: 'ETL Automation',
     description: 'Explore how automation simplifies problem-solving by testing AI’s ability to break tasks into subproblems.',
     preview: require('./showcase/etl-automation.png'),
-    website: 'https://nicholas-goh.com/use-cases/etl-automation/ui',
+    website: 'https://nicholas-goh.com/blog/etl-automation#demo',
     blog: 'https://nicholas-goh.com/blog/etl-automation',
     tags: ['agenticworkflow'],
   },
@@ -64,7 +64,7 @@ const Users: User[] = [
     description:
       'Explore how a complex problem with moving parts can be solved, by having it broken down into smaller problems to be solved—automatically.',
     preview: require('./showcase/customer-service-automation.png'),
-    website: 'https://nicholas-goh.com/use-cases/customer-service/ui/',
+    website: 'https://nicholas-goh.com/blog/customer-service-automation#demo',
     blog: 'https://nicholas-goh.com/blog/customer-service-automation',
     tags: ['agenticworkflow', 'multiagents'],
   },
@@ -75,7 +75,7 @@ const Users: User[] = [
    */
 ];
 
-export type User = {
+export type Project = {
   title: string;
   description: string;
   preview: string | null; // null = use our serverless screenshot service
@@ -120,13 +120,13 @@ export const Tags: { [type in TagType]: Tag } = {
 };
 
 export const TagList = Object.keys(Tags) as TagType[];
-function sortUsers() {
-  let result = Users;
+function sortProjects() {
+  let result = Projects;
   // Sort by site name
-  result = sortBy(result, (user) => user.title.toLowerCase());
+  result = sortBy(result, (project) => project.title.toLowerCase());
   // Sort by favorite tag, favorites first
-  result = sortBy(result, (user) => !user.tags.includes("favorite"));
+  result = sortBy(result, (project) => !project.tags.includes("favorite"));
   return result;
 }
 
-export const sortedUsers = sortUsers();
+export const sortedProjects = sortProjects();

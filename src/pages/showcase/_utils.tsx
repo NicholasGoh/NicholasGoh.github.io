@@ -11,8 +11,8 @@ import {
   useQueryString,
   useQueryStringList,
 } from "@docusaurus/theme-common";
-import type { TagType, User } from "@site/src/data/users";
-import { sortedUsers } from "@site/src/data/users";
+import type { TagType, Project } from "@site/src/data/projects";
+import { sortedProjects } from "@site/src/data/projects";
 
 export function useSearchName() {
   return useQueryString("name");
@@ -34,45 +34,45 @@ export function useOperator() {
   return [operator, toggleOperator] as const;
 }
 
-function filterUsers({
-  users,
+function filterProjects({
+  projects,
   tags,
   operator,
   searchName,
 }: {
-  users: User[];
+  projects: Project[];
   tags: TagType[];
   operator: Operator;
   searchName: string | null;
 }) {
   if (searchName) {
     // eslint-disable-next-line no-param-reassign
-    users = users.filter((user) =>
-      user.title.toLowerCase().includes(searchName.toLowerCase()),
+    projects = projects.filter((project) =>
+      project.title.toLowerCase().includes(searchName.toLowerCase()),
     );
   }
   if (tags.length === 0) {
-    return users;
+    return projects;
   }
-  return users.filter((user) => {
-    if (user.tags.length === 0) {
+  return projects.filter((project) => {
+    if (project.tags.length === 0) {
       return false;
     }
     if (operator === "AND") {
-      return tags.every((tag) => user.tags.includes(tag));
+      return tags.every((tag) => project.tags.includes(tag));
     }
-    return tags.some((tag) => user.tags.includes(tag));
+    return tags.some((tag) => project.tags.includes(tag));
   });
 }
 
-export function useFilteredUsers() {
+export function useFilteredProjects() {
   const [tags] = useTags();
   const [searchName] = useSearchName();
   const [operator] = useOperator();
   return useMemo(
     () =>
-      filterUsers({
-        users: sortedUsers,
+      filterProjects({
+        projects: sortedProjects,
         tags: tags as TagType[],
         operator,
         searchName,
