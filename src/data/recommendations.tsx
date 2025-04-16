@@ -53,6 +53,27 @@ const TWEETS: RecommendationItem[] = [
     showOnHomepage: true,
     githubUsername: "leonseet",
   },
+  {
+    url: "https://www.linkedin.com/in/hui-ning-joo-9a5141168/",
+    name: "Hui Ning Joo",
+    date: "Apr 16, 2025",
+    content: (
+      <>
+        I had the opportunity to work with Nicholas both as his lead for a few
+        months and later as a co-lead during his time as a junior developer on
+        our team. He brought strong energy and initiative, kept up with the
+        latest tools, and was always eager to contribute ideas. One of his
+        highlights was independently diving into the new domain of AI agents and
+        delivering a working demo. He also proposed a centralized weights
+        caching approach, which saved space and improved efficiency. While
+        there’s still room to grow in structured planning and deeper evaluation,
+        his curiosity and drive stand out. With continued experience, I’m
+        confident he’s on a path to achieve great things in his career.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "",
+  },
 ];
 
 export default TWEETS;
