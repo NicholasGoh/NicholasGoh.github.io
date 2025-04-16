@@ -34,7 +34,11 @@ export default function Recommendation({
           <img
             alt={name}
             className="avatar__photo"
-            src={`https://github.com/${githubUsername}.png`}
+            src={
+              githubUsername
+                ? `https://github.com/${githubUsername}.png`
+                : `https://nicholas-goh/img/blank.png`
+            }
             width="48"
             height="48"
             loading="lazy"
