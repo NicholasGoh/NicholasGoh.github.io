@@ -37,7 +37,7 @@ export default function Recommendation({
             src={
               githubUsername
                 ? `https://github.com/${githubUsername}.png`
-                : `https://nicholas-goh/img/blank.png`
+                : "https://nicholasgoh.github.io/img/blank.png"
             }
             width="48"
             height="48"
