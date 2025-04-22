@@ -74,6 +74,25 @@ const TWEETS: RecommendationItem[] = [
     showOnHomepage: true,
     githubUsername: "",
   },
+  {
+    url: "https://www.linkedin.com/in/alvinphang/",
+    name: "Alvin Phang",
+    date: "Apr 22, 2025",
+    content: (
+      <>
+        I had the pleasure of working with Nicholas, and I’m genuinely impressed
+        by their growth and contributions. A fast learner with a great attitude,
+        Nicholas quickly ramped up on complex topics like LLM microservices and
+        took initiative to implement practical solutions that improved team
+        efficiency and led to meaningful cost savings. On top of that, Nicholas
+        is friendly, collaborative, and always a joy to work with — a great
+        asset to any team.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "",
+    staticProfileImage: "alvinphang",
+  },
 ];
 
 export default TWEETS;

@@ -18,6 +18,7 @@ export interface Props {
   content: ReactNode;
   date: string;
   githubUsername: string;
+  staticProfileImage: string | null;
 }
 
 export default function Recommendation({
@@ -26,6 +27,7 @@ export default function Recommendation({
   content,
   date,
   githubUsername,
+  staticProfileImage,
 }: Props): ReactNode {
   return (
     <div className={clsx("card", styles.recommendation)}>
@@ -37,7 +39,9 @@ export default function Recommendation({
             src={
               githubUsername
                 ? `https://github.com/${githubUsername}.png`
-                : "https://nicholasgoh.github.io/img/blank.png"
+                : staticProfileImage
+                  ? `https://nicholasgoh.github.io/img/recommenders/${staticProfileImage}.png`
+                  : "https://nicholasgoh.github.io/img/recommenders/blank.png"
             }
             width="48"
             height="48"
