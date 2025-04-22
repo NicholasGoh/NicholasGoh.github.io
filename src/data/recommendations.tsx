@@ -17,41 +17,23 @@ export type RecommendationItem = Recommendation & {
 
 const TWEETS: RecommendationItem[] = [
   {
-    url: "https://chinholin.com",
-    name: "Chin-Ho Lin",
-    date: "Apr 09, 2025",
+    url: "https://www.linkedin.com/in/alvinphang/",
+    name: "Alvin Phang",
+    date: "Apr 22, 2025",
     content: (
       <>
-        Nicholas is a fast learner who quickly identifies issues, conducts
-        thorough research, and efficiently finds solutions to ensure project
-        progress. He has been contributing to projects such as building LLM
-        microservices for concurrent calls and developing a centralized model
-        weight cache.
-      </>
-    ),
-    showOnHomepage: true,
-    githubUsername: "tainvecs",
-  },
-  {
-    url: "https://www.linkedin.com/in/leonseet/",
-    name: "Leon Seet",
-    date: "Apr 13, 2025",
-    content: (
-      <>
-        I highly recommend Nicholas based on our time working together. He
-        possesses a keen ability to identify operational inefficiencies and
-        implement solutions that result in tangible time and cost savings which
-        benefitted our development works. A standout contribution was his
-        development of a deployable LLM microservice tailored for our restricted
-        on-prem environment, which has helped accelerated development cycles
-        needing on-prem LLM capabilties. Furthermore, Nicholas is a
-        collaborative colleague with great expertise in advanced Bash
-        configurations which I have learnt a lot from. He would be a valuable
+        I had the pleasure of working with Nicholas, and I’m genuinely impressed
+        by their growth and contributions. A fast learner with a great attitude,
+        Nicholas quickly ramped up on complex topics like LLM microservices and
+        took initiative to implement practical solutions that improved team
+        efficiency and led to meaningful cost savings. On top of that, Nicholas
+        is friendly, collaborative, and always a joy to work with — a great
         asset to any team.
       </>
     ),
     showOnHomepage: true,
-    githubUsername: "leonseet",
+    githubUsername: "",
+    staticProfileImage: "alvinphang",
   },
   {
     url: "https://www.linkedin.com/in/hui-ning-joo-9a5141168/",
@@ -75,23 +57,41 @@ const TWEETS: RecommendationItem[] = [
     githubUsername: "",
   },
   {
-    url: "https://www.linkedin.com/in/alvinphang/",
-    name: "Alvin Phang",
-    date: "Apr 22, 2025",
+    url: "https://www.linkedin.com/in/leonseet/",
+    name: "Leon Seet",
+    date: "Apr 13, 2025",
     content: (
       <>
-        I had the pleasure of working with Nicholas, and I’m genuinely impressed
-        by their growth and contributions. A fast learner with a great attitude,
-        Nicholas quickly ramped up on complex topics like LLM microservices and
-        took initiative to implement practical solutions that improved team
-        efficiency and led to meaningful cost savings. On top of that, Nicholas
-        is friendly, collaborative, and always a joy to work with — a great
+        I highly recommend Nicholas based on our time working together. He
+        possesses a keen ability to identify operational inefficiencies and
+        implement solutions that result in tangible time and cost savings which
+        benefitted our development works. A standout contribution was his
+        development of a deployable LLM microservice tailored for our restricted
+        on-prem environment, which has helped accelerated development cycles
+        needing on-prem LLM capabilties. Furthermore, Nicholas is a
+        collaborative colleague with great expertise in advanced Bash
+        configurations which I have learnt a lot from. He would be a valuable
         asset to any team.
       </>
     ),
     showOnHomepage: true,
-    githubUsername: "",
-    staticProfileImage: "alvinphang",
+    githubUsername: "leonseet",
+  },
+  {
+    url: "https://chinholin.com",
+    name: "Chin-Ho Lin",
+    date: "Apr 09, 2025",
+    content: (
+      <>
+        Nicholas is a fast learner who quickly identifies issues, conducts
+        thorough research, and efficiently finds solutions to ensure project
+        progress. He has been contributing to projects such as building LLM
+        microservices for concurrent calls and developing a centralized model
+        weight cache.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "tainvecs",
   },
 ];
 
