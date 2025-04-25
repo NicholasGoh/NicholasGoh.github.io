@@ -106,6 +106,16 @@ const config: Config = {
         },
         { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
+        {
+          to: "https://nicholas-goh/grafana",
+          label: "Grafana",
+          position: "left",
+        },
+        {
+          to: "https://nicholas-goh/langfuse",
+          label: "Langfuse",
+          position: "left",
+        },
         { to: "/docs/intro", label: "Docs", position: "left" },
         {
           href: "https://www.linkedin.com/in/nicholas-goh-19ba1b194/",
