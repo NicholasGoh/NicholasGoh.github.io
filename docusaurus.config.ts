@@ -106,6 +106,7 @@ const config: Config = {
         },
         { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
+        { to: "/docs/intro", label: "Docs", position: "left" },
         {
           href: "https://www.linkedin.com/in/nicholas-goh-19ba1b194/",
           position: "right",

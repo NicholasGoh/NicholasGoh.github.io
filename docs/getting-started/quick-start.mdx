@@ -1,0 +1,106 @@
+---
+sidebar_position: 1
+---
+
+import ReactPlayer from 'react-player'
+
+# Quick Start
+
+Build community youtube MCP image with:
+
+```bash
+./community/youtube/build.sh
+```
+
+:::tip
+
+Instead of cloning or submoduling the repository locally, then building the image, this script builds the Docker image inside a temporary Docker-in-Docker container. This approach avoids polluting your local environment with throwaway files by cleaning up everything once the container exits.
+
+:::
+
+Then build the other images with:
+
+```bash
+docker compose -f compose-dev.yaml build
+```
+
+Copy environment file:
+
+```bash
+cp .env.sample .env
+```
+
+Add your following API keys and value to the respective file: `./envs/backend.env`, `./envs/youtube.env` and `.env`.
+
+```bash
+OPENAI_API_KEY=sk-proj-...
+POSTGRES_DSN=postgresql://postgres...
+YOUTUBE_API_KEY=...
+```
+
+Set environment variables in shell: (compatible with `bash` and `zsh`)
+
+```bash
+set -a; for env_file in ./envs/*; do source $env_file; done; set +a
+```
+
+Start production containers:
+
+```bash
+docker compose up -d
+```
+
+<ReactPlayer playing controls url='/vid/fastapi-mcp-langgraph-template/api.mp4' />
+
+## Development
+
+First, set environment variables as per above.
+
+### VSCode Devcontainer
+
+<ReactPlayer playing controls url='/vid/fastapi-mcp-langgraph-template/vscode.mp4' />
+
+<br/>
+
+:::warning
+
+Only replace the following if you plan to start debugger for FastAPI server in VSCode.
+
+:::
+
+Replace `./compose-dev.yaml` entrypoint to allow debugging FastAPI server:
+
+```yaml title="./compose-dev.yaml"
+  api:
+    image: api:prod
+    build:
+      dockerfile: ./backend/api/Dockerfile
+    # highlight-next-line
+    entrypoint: bash -c "sleep infinity"
+    env_file:
+      - ./envs/backend.env
+```
+
+Then:
+
+```bash
+code --no-sandbox .
+```
+
+Press `F1` and type `Dev Containers: Rebuild and Reopen in Container` to open containerized environment with IntelliSense and Debugger for FastAPI.
+
+### Without VSCode Devcontainer
+
+Run development environment with:
+
+```bash
+docker compose -f compose-dev.yaml up -d
+```
+
+## Debugging
+
+Sometimes in development, nginx reverse proxy needs to reload its config to route services properly.
+
+```bash
+docker compose -f compose-dev.yaml exec nginx sh -c "nginx -s reload"
+```
