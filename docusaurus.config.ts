@@ -107,12 +107,12 @@ const config: Config = {
         { to: "/showcase", label: "Projects", position: "left" },
         { to: "/blog", label: "Blog", position: "left" },
         {
-          to: "https://nicholas-goh/grafana",
+          to: "https://nicholas-goh.com/grafana",
           label: "Grafana",
           position: "left",
         },
         {
-          to: "https://nicholas-goh/langfuse",
+          to: "https://nicholas-goh.com/langfuse",
           label: "Langfuse",
           position: "left",
         },
