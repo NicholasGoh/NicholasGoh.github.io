@@ -1,0 +1,98 @@
+---
+sidebar_position: 1
+---
+
+# Architecture
+
+This section outlines the architecture of the services, their interactions, and planned features.
+
+## Inspector
+
+Inspector communicates via SSE protocol with each MCP Server, while each server adheres to MCP specification.
+
+```mermaid
+graph LR
+
+  subgraph localhost
+    A[Inspector]
+    B[DBHub Server]
+    C[Youtube Server]
+    D[Custom Server]
+  end
+
+  subgraph Supabase Cloud
+    E[Supabase DB]
+  end
+
+  subgraph Google Cloud
+    F[Youtube API]
+  end
+
+  A<-->|Protocol|B
+  A<-->|Protocol|C
+  A<-->|Protocol|D
+  B<-->E
+  C<-->F
+```
+
+## Template Setup
+
+The current template does not connect to all MCP servers. Additionally, the API server communicates with the database using a SQL ORM.
+
+```mermaid
+graph LR
+
+  subgraph localhost
+    A[API Server]
+    B[DBHub Server]
+    C[Youtube Server]
+    D[Custom Server]
+  end
+
+  subgraph Supabase Cloud
+    E[Supabase DB]
+  end
+
+  A<-->|Protocol|D
+  A<-->E
+```
+
+## Reverse Proxy
+
+Can be extended for other services like Frontend and/or certain backend services self-hosted instead of on cloud (e.g., Langfuse).
+
+```mermaid
+graph LR
+  A[Web Browser]
+
+  subgraph localhost
+    B[Nginx Reverse Proxy]
+    C[API Server]
+  end
+
+  A-->B
+  B-->C
+```
+
+## Planned Features
+
+### Monitoring and Observability
+
+```mermaid
+graph LR
+
+  subgraph localhost
+    A[API Server]
+  end
+
+  subgraph Grafana Cloud
+    B[Grafana]
+  end
+
+  subgraph Langfuse Cloud
+    C[Langfuse]
+  end
+
+  A -->|Metrics & Logs| B
+  A -->|Traces & Events| C
+```
