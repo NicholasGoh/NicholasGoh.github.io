@@ -2,6 +2,8 @@
 sidebar_position: 6
 ---
 
+import ReactPlayer from 'react-player'
+
 # Langfuse
 
 > Traces, evals, prompt management and metrics to debug and improve your LLM application.
@@ -9,3 +11,55 @@ sidebar_position: 6
 Learn more [here](https://langfuse.com/)
 
 [![LangFuse](https://img.shields.io/github/stars/langfuse/langfuse?logo=langfuse&label=LangFuse)](https://github.com/langfuse/langfuse)
+
+## Video Demos
+
+Below is an outline of the steps involved in a simple Math Agent. Key elements illustrated include:
+
+- A visual breakdown of each step—e.g., when the agent invokes a tool and when control returns to the agent
+- Inputs and outputs at each stage of the process:
+  - **User to Agent**: The user asks a natural language question — e.g., `What is 1 + 1?`
+  - **Agent to Tool**: The agent decides to call a calculator tool with structured arguments — e.g., `args: { a: 1, b: 1 }`.
+  - **Tool to Agent**: The tool executes the operation and returns the result — e.g., `2`.
+  - **Agent to User**: The agent responds with the final answer in natural language — e.g., `1 + 1 = 2`.
+- The full chat history throughout the interaction
+- Latency and cost associated with each node
+
+### Step 1: Math Agent (User to Agent → Agent to Tool)
+
+<ReactPlayer playing controls url='/vid/fastapi-mcp-langgraph-template/langfuse/timeline-1-agent.mp4' />
+
+<br />
+
+This section shows:
+
+- **User to Agent**: The user asks a natural language question — e.g., `What is 1 + 1?`
+- **Agent to Tool**: The agent decides to call a calculator tool with structured arguments — e.g., `args: { a: 1, b: 1 }`.
+- **Full Chat History Throughout the Interaction**: You can inspect earlier user-agent messages. For instance:
+
+```text
+User: reply only no
+Agent: No.
+```
+
+In this example, the agent responded directly without calling any tools.
+
+### Step 2: Tool Call (Tool to Agent)
+
+<ReactPlayer playing controls url='/vid/fastapi-mcp-langgraph-template/langfuse/timeline-2-tool-call.mp4' />
+
+<br />
+
+This section shows:
+
+  - **Tool to Agent**: The tool executes the operation and returns the result — e.g., `2`.
+
+### Step 3: Math Agent (Agent to User)
+
+<ReactPlayer playing controls url='/vid/fastapi-mcp-langgraph-template/langfuse/timeline-3-agent.mp4' />
+
+<br />
+
+This section shows:
+
+  - **Agent to User**: The agent responds with the final answer in natural language — e.g., `1 + 1 = 2`.
