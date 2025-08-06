@@ -24,6 +24,12 @@ const config: Config = {
       "data-domains": "nicholas-goh.com,nicholasgoh.github.io",
       defer: true,
     },
+    {
+      src: "https://embed.tawk.to/689347ad932a8a1930b18ff2/1j1vkvvs3",
+      async: true,
+      charset: "UTF-8",
+      crossorigin: "*",
+    },
   ],
   markdown: {
     mermaid: true,
