@@ -30,16 +30,6 @@ const config: Config = {
       charset: "UTF-8",
       crossorigin: "*",
     },
-    {
-      src: "https://ifoundthischeapdomain.com/packs/js/sdk.js",
-      async: true,
-      onload: `
-        window.chatwootSDK.run({
-          websiteToken: 'YPX4bdagymMMbZHo7ZX6KAMe',
-          baseUrl: 'https://ifoundthischeapdomain.com'
-        })
-      `,
-    },
   ],
   markdown: {
     mermaid: true,
