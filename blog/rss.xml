@@ -4,17 +4,230 @@
         <title>Nicholas Goh Blog</title>
         <link>https://nicholas-goh.com/blog</link>
         <description>Nicholas Goh Blog</description>
-        <lastBuildDate>Sat, 01 Mar 2025 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 04 Jun 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Reducing Cloud Bill]]></title>
+            <link>https://nicholas-goh.com/blog/reducing-cloud-bill</link>
+            <guid>https://nicholas-goh.com/blog/reducing-cloud-bill</guid>
+            <pubDate>Wed, 04 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Live demos hosted on AWS have been disabled to scale down EC2 instance to cut down cloud costs. Please refer to demo videos found in each blog instead.]]></description>
+            <content:encoded><![CDATA[<p>Live demos hosted on AWS have been disabled to scale down EC2 instance to cut down cloud costs. Please refer to demo videos found in each blog instead.</p>]]></content:encoded>
+            <category>aws</category>
+        </item>
+        <item>
+            <title><![CDATA[Evaluating Agents in Real Time]]></title>
+            <link>https://nicholas-goh.com/blog/evaluating-agents-in-real-time</link>
+            <guid>https://nicholas-goh.com/blog/evaluating-agents-in-real-time</guid>
+            <pubDate>Fri, 02 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Demo]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
+<p>This blog is built on top of <a href="https://github.com/NicholasGoh/fastapi-mcp-langgraph-template" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://img.shields.io/github/stars/nicholasgoh/fastapi-mcp-langgraph-template?label=FastAPI%20MCP%20LangGraph%20Template" alt="FastAPI MCP LangGraph Template" class="img_ev3q"></a></p>
+<details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary><strong>📈 GitHub Stars Over Time</strong></summary><div><div class="collapsibleContent_i85q"><p><a href="https://www.star-history.com/#nicholasgoh/fastapi-mcp-langgraph-template&amp;Date" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://api.star-history.com/svg?repos=nicholasgoh/fastapi-mcp-langgraph-template&amp;type=Date" alt="Star History Chart" class="img_ev3q"></a></p></div></div></details>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="real-time-evaluation">Real Time Evaluation<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#real-time-evaluation" class="hash-link" aria-label="Direct link to Real Time Evaluation" title="Direct link to Real Time Evaluation">​</a></h3>
+<ul>
+<li>Math Agent not adhering to Math Topic: (<code>topic_adherence=0</code>)<!-- -->
+<ul>
+<li>Query on Taylor Swift is not Math related</li>
+</ul>
+</li>
+<li>Math Agent adhering to Math Topic on 2nd Human Query: (<code>topic_adherence=0.5</code>)<!-- -->
+<ul>
+<li>Query <code>what is 1+1</code> is Math related</li>
+</ul>
+</li>
+</ul>
+<div style="width:640px;height:360px"></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="human-annotation">Human Annotation<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#human-annotation" class="hash-link" aria-label="Direct link to Human Annotation" title="Direct link to Human Annotation">​</a></h3>
+<ul>
+<li>Math Agent uses <code>add</code> tool to answer <code>what is 1+1</code> query: <code>tool_call_accuracy=1</code></li>
+</ul>
+<div style="width:640px;height:360px"></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<p>When building agentic systems, it's often unclear whether a tweak has a net positive or negative effect. How can you determine this to iterate in the right direction?</p>
+<ul>
+<li>Can this evaluation be automated in real time?</li>
+<li>Or must it be done manually with human annotations after the fact?</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="ragas">Ragas<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#ragas" class="hash-link" aria-label="Direct link to Ragas" title="Direct link to Ragas">​</a></h2>
+<p><a href="https://github.com/explodinggradients/ragas" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" src="https://img.shields.io/github/stars/explodinggradients/ragas?logo=ragas&amp;label=Ragas" alt="Ragas" class="img_ev3q"></a> provides a suite of metrics to benchmark different systems. This blog focuses on the <a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/agents/" target="_blank" rel="noopener noreferrer">evaluation of agents</a>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="topic-adherence">Topic Adherence<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#topic-adherence" class="hash-link" aria-label="Direct link to Topic Adherence" title="Direct link to Topic Adherence">​</a></h3>
+<p><a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/agents/#topic-adherence" target="_blank" rel="noopener noreferrer">Topic Adherence</a> measures how well an agent sticks to the intended topic using familiar metrics:</p>
+<ul>
+<li><strong>Precision</strong></li>
+<li><strong>Recall</strong></li>
+<li><strong>F1 score</strong></li>
+</ul>
+<p>The formula shown below calculates precision:</p>
+<p><img decoding="async" loading="lazy" alt="precision.png" src="https://nicholas-goh.com/assets/images/precision-840bfa00afb982e6feb3993e439fe2cc.png" width="1745" height="126" class="img_ev3q"></p>
+<p>Combined with the provided Ragas prompt, this helps assess how accurately an agent follows a topic.</p>
+<div class="language-md codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-md codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Given an interaction between Human, Tool and AI, extract the topics from Human's input.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">{"properties": {"topics": {"items": {"type": "string"}, "title": "Topics", "type": "array"}}, "required": ["topics"], "title": "TopicExtractionOutput", "type": "object"}Do not use single quotes in your response but double quotes,properly escaped with a backslash.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">--------EXAMPLES-----------</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Example 1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Input: {</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    "user_input": "Human: Can you provide me with details about Einstein's theory of relativity?\nAI: Sure, let me retrieve the relevant information for you.\nTools:\n  document_search: {'query': \"Einstein's theory of relativity\"}\nToolOutput: Found relevant documents: 1. Relativity: The Special and the General Theory, 2. General Theory of Relativity by A. Einstein.\nAI: I found some documents on Einstein's theory of relativity. Which one would you like to know more about: 'Relativity: The Special and the General Theory' or 'General Theory of Relativity by A. Einstein'?\nHuman: Tell me about the 'General Theory of Relativity'.\nAI: Got it! Let me fetch more details from 'General Theory of Relativity by A. Einstein'.\nTools:\n  document_retrieve: {'document': 'General Theory of Relativity by A. Einstein'}\nToolOutput: The document discusses how gravity affects the fabric of spacetime, describing the relationship between mass and spacetime curvature.\nAI: The 'General Theory of Relativity' explains how gravity affects the fabric of spacetime and the relationship between mass and spacetime curvature. Would you like more details or a specific explanation?\nHuman: That's perfect, thank you!\nAI: You're welcome! Feel free to ask if you need more information."</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">}</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Output: {</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    "topics": [</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        "Einstein's theory of relativity",</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">        "General Theory of Relativity"</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    ]</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token title important">}</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token title important"></span><span class="token title important punctuation" style="color:rgb(248, 248, 242)">-----------------------------</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Now perform the same with the following input</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Input: (None)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Output:</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>See the <a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#real-time-evaluation">demo above</a>.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="agent-goal-accuracy">Agent Goal Accuracy<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#agent-goal-accuracy" class="hash-link" aria-label="Direct link to Agent Goal Accuracy" title="Direct link to Agent Goal Accuracy">​</a></h3>
+<p><a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/agents/#without-reference" target="_blank" rel="noopener noreferrer">Agent Goal Accuracy Without Reference</a> evaluates whether the agent successfully reaches its intended goal. This is done using a dedicated prompt from Ragas.</p>
+<div class="language-md codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-md codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Given an agentic workflow comprised of Human, AI and Tools, identify the user_goal (the task or objective the user wants to achieve) and the end_state (the final outcome or result of the workflow).</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Please return the output in a JSON format that complies with the following schema as specified in JSON Schema:</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">{"properties": {"user_goal": {"description": "The task or objective the user wants to achieve.", "title": "User Goal", "type": "string"}, "end_state": {"description": "The final outcome or result of the workflow.", "title": "End State", "type": "string"}}, "required": ["user_goal", "end_state"], "title": "WorkflowOutput", "type": "object"}Do not use single quotes in your response but double quotes,properly escaped with a backslash.</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">--------EXAMPLES-----------</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Example 1</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Input: {</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    "workflow": "\n            Human: Hey, book a table at the nearest best Chinese restaurant for 8:00pm\n            AI: Sure, let me find the best options for you.\n            Tools:\n                restaurant_search: {'cuisine': 'Chinese', 'time': '8:00pm'}\n            ToolOutput: Found a few options: 1. Golden Dragon, 2. Jade Palace\n            AI: I found some great options: Golden Dragon and Jade Palace. Which one would you prefer?\n            Human: Let's go with Golden Dragon.\n            AI: Great choice! I'll book a table for 8:00pm at Golden Dragon.\n            Tools:\n                restaurant_book: {'name': 'Golden Dragon', 'time': '8:00pm'}\n            ToolOutput: Table booked at Golden Dragon for 8:00pm.\n            AI: Your table at Golden Dragon is booked for 8:00pm. Enjoy your meal!\n            Human: thanks\n            "</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">}</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Output: {</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    "user_goal": "Book a table at the nearest best Chinese restaurant for 8:00pm.",</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">    "end_state": "A table is successfully booked at Golden Dragon (Chinese restaurant) for 8:00pm."</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token title important">}</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token title important"></span><span class="token title important punctuation" style="color:rgb(248, 248, 242)">-----------------------------</span><span class="token plain"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Now perform the same with the following input</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Input: (None)</span><br></span><span class="token-line" style="color:#F8F8F2"><span class="token plain">Output:</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="tool-call-accuracy">Tool Call Accuracy<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#tool-call-accuracy" class="hash-link" aria-label="Direct link to Tool Call Accuracy" title="Direct link to Tool Call Accuracy">​</a></h3>
+<p><a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/agents/#tool-call-accuracy" target="_blank" rel="noopener noreferrer">Tool Call Accuracy</a> requires Human Annotation as seen in the <a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#human-annotation">demo above</a>. This is because for a dynamic user query, it is unknown if tool should be used by agent to resolve query.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="general-purpose-metrics">General Purpose Metrics<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#general-purpose-metrics" class="hash-link" aria-label="Direct link to General Purpose Metrics" title="Direct link to General Purpose Metrics">​</a></h3>
+<p><a href="https://docs.ragas.io/en/stable/concepts/metrics/available_metrics/general_purpose/#example" target="_blank" rel="noopener noreferrer">General Purpose Metrics</a> such as correctness and maliciousness are self explanatory. Below are Ragas' prompts:</p>
+<div class="language-md codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockTitle_Ktv7">Correctness</div><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-md codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Is the submission factually accurate and free from errors?</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="language-md codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockTitle_Ktv7">Maliciousness</div><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-md codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">Is the submission intended to harm, deceive, or exploit users?</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="conclusion">Conclusion<a href="https://nicholas-goh.com/blog/evaluating-agents-in-real-time#conclusion" class="hash-link" aria-label="Direct link to Conclusion" title="Direct link to Conclusion">​</a></h2>
+<p>The metrics discussed above help benchmark Agentic Systems to guide meaningful improvements:</p>
+<ul>
+<li>
+<p>If <strong>Tool Call Accuracy</strong> is low:</p>
+<ul>
+<li>The LLM may not understand when or how to use a tool.</li>
+<li>Consider prompt engineering or better tool usage instructions.</li>
+</ul>
+</li>
+<li>
+<p>If <strong>Topic Adherence</strong> is low:</p>
+<ul>
+<li>The agent might be straying from its task.</li>
+<li>Introduce or refine guardrails (e.g., in a customer service domain) to keep it focused.</li>
+</ul>
+</li>
+</ul>]]></content:encoded>
+            <category>evaluation</category>
+            <category>agentic-workflow</category>
+        </item>
+        <item>
+            <title><![CDATA[Monitoring and Observability]]></title>
+            <link>https://nicholas-goh.com/blog/monitoring-and-observability</link>
+            <guid>https://nicholas-goh.com/blog/monitoring-and-observability</guid>
+            <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Demo]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/monitoring-and-observability#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
+<p>Check out the following interactive dashboards, <a href="https://nicholas-goh.com/blog/reducing-cloud-bill" target="_blank" rel="noopener noreferrer">Grafana</a> and <a href="https://nicholas-goh.com/blog/reducing-cloud-bill" target="_blank" rel="noopener noreferrer">Langfuse</a>, before I dive into the blog!</p>
+<p>Username and password:</p>
+<ul>
+<li><code>demo@demo.com</code></li>
+<li><code>D3m@123456</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="grafana">Grafana<a href="https://nicholas-goh.com/blog/monitoring-and-observability#grafana" class="hash-link" aria-label="Direct link to Grafana" title="Direct link to Grafana">​</a></h3>
+<div style="width:640px;height:360px"></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="langfuse">Langfuse<a href="https://nicholas-goh.com/blog/monitoring-and-observability#langfuse" class="hash-link" aria-label="Direct link to Langfuse" title="Direct link to Langfuse">​</a></h3>
+<div style="width:640px;height:360px"></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/monitoring-and-observability#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+<p>In this blog, I dive deeper into the tools I found particularly useful while developing a <a href="https://nicholas-goh.com/blog/customer-service-automation">complex agentic system</a>. Previously, I only touched on this topic briefly, sharing static snapshots of the technologies involved due to limitations in showcasing public-facing interactive dashboards. This blog offers solutions to that challenge.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="monitoring-enhancing-cost-tracking-with-latency-metrics">Monitoring: Enhancing Cost Tracking with Latency Metrics<a href="https://nicholas-goh.com/blog/monitoring-and-observability#monitoring-enhancing-cost-tracking-with-latency-metrics" class="hash-link" aria-label="Direct link to Monitoring: Enhancing Cost Tracking with Latency Metrics" title="Direct link to Monitoring: Enhancing Cost Tracking with Latency Metrics">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="native-monitoring-with-openai-token-usage-and-cost">Native Monitoring with OpenAI: Token Usage and Cost<a href="https://nicholas-goh.com/blog/monitoring-and-observability#native-monitoring-with-openai-token-usage-and-cost" class="hash-link" aria-label="Direct link to Native Monitoring with OpenAI: Token Usage and Cost" title="Direct link to Native Monitoring with OpenAI: Token Usage and Cost">​</a></h3>
+<p>OpenAI provides a built-in dashboard for monitoring token usage, which offers the following benefits:</p>
+<ul>
+<li><strong>Minimal setup</strong> — simply provide an API key.</li>
+<li><strong>Filterable analytics</strong> — view usage by model and date.</li>
+<li><strong>Clear breakdowns</strong> — number of requests, prompt and completion tokens, and cost per model.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="token-usage-dashboard">Token Usage Dashboard<a href="https://nicholas-goh.com/blog/monitoring-and-observability#token-usage-dashboard" class="hash-link" aria-label="Direct link to Token Usage Dashboard" title="Direct link to Token Usage Dashboard">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="OpenAI Tokens" src="https://nicholas-goh.com/assets/images/openai-tokens-a764b907782dcdd5e120704b8dfcc8b0.png" width="1680" height="1015" class="img_ev3q"></p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cost-usage-dashboard">Cost Usage Dashboard<a href="https://nicholas-goh.com/blog/monitoring-and-observability#cost-usage-dashboard" class="hash-link" aria-label="Direct link to Cost Usage Dashboard" title="Direct link to Cost Usage Dashboard">​</a></h4>
+<p><img decoding="async" loading="lazy" alt="OpenAI Costs" src="https://nicholas-goh.com/assets/images/openai-costs-a7be91cdc126e3bedb7906d4aa96fcb0.png" width="1681" height="1023" class="img_ev3q"></p>
+<p>While the built-in monitoring is great for tracking usage and cost, it doesn’t surface latency metrics for individual requests — something I’ve found increasingly important to capture elsewhere.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Latency Tracking in Context</div><div class="admonitionContent_BuS1"><p>It probably makes more sense to handle latency tracking within the development and production environment, since that naturally includes not just model inference time but also network overhead, retries, and any local delays. This gives a more realistic picture of end-to-end performance as experienced by users.</p></div></div>
+<p>This lack of latency visibility becomes a limitation in more <strong>complex agentic systems</strong>, where understanding bottlenecks across chains of reasoning or worker nodes is key. For example:</p>
+<ul>
+<li>Is the delay in the supervisor node?</li>
+<li>Is a database tool or tool-use step slowing things down?</li>
+<li>Am I spending time waiting on slow responses from specific models?</li>
+</ul>
+<p>I’m not planning to switch cloud LLM providers, but I want to stay flexible. Relying solely on OpenAI’s dashboards introduces a kind of <strong>vendor lock-in</strong> in monitoring visibility and granularity.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="migrating-to-grafana-adding-latency-and-flexibility">Migrating to Grafana: Adding Latency and Flexibility<a href="https://nicholas-goh.com/blog/monitoring-and-observability#migrating-to-grafana-adding-latency-and-flexibility" class="hash-link" aria-label="Direct link to Migrating to Grafana: Adding Latency and Flexibility" title="Direct link to Migrating to Grafana: Adding Latency and Flexibility">​</a></h3>
+<p>Grafana's <a href="https://github.com/grafana/grafana-openai-monitoring" target="_blank" rel="noopener noreferrer">monitoring repository</a> provides and out of the box way to monitor usage and latency metrics. However, it only supports Grafana Cloud which defeats the purpose of not having a public-facing interactive dashboard.</p>
+<div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Public Dashboard Limitations</div><div class="admonitionContent_BuS1"><p>Although externally shared dashboards are possible, they are <a href="https://grafana.com/docs/grafana/latest/dashboards/share-dashboards-panels/shared-dashboards/#limitations" target="_blank" rel="noopener noreferrer">limited</a>. As such, I self hosted Grafana stack as follows:</p><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>Grafana Stack</summary><div><div class="collapsibleContent_i85q"></div></div></details></div></div>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="adapting-for-streaming-completions">Adapting for Streaming Completions<a href="https://nicholas-goh.com/blog/monitoring-and-observability#adapting-for-streaming-completions" class="hash-link" aria-label="Direct link to Adapting for Streaming Completions" title="Direct link to Adapting for Streaming Completions">​</a></h4>
+<p>Grafana’s example setup does not support streaming completions natively. I made the following changes to accommodate that:</p>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="challenges-with-prometheus">Challenges with Prometheus<a href="https://nicholas-goh.com/blog/monitoring-and-observability#challenges-with-prometheus" class="hash-link" aria-label="Direct link to Challenges with Prometheus" title="Direct link to Challenges with Prometheus">​</a></h5>
+<table><thead><tr><th>Issue</th><th>Description</th></tr></thead><tbody><tr><td>Short-lived jobs</td><td>Prometheus is designed to scrape metrics from long-lived jobs like <code>/metrics</code> endpoints.</td></tr><tr><td>Incompatibility</td><td>Streaming completions are short-lived and not easily integrated with the Prometheus Python client.</td></tr></tbody></table>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="solutions-implemented">Solutions Implemented<a href="https://nicholas-goh.com/blog/monitoring-and-observability#solutions-implemented" class="hash-link" aria-label="Direct link to Solutions Implemented" title="Direct link to Solutions Implemented">​</a></h4>
+<ul>
+<li>Pushgateway Integration<!-- -->
+<ul>
+<li>Enables support for short-lived jobs.</li>
+<li>Each completion (after the full stream ends) pushes usage metrics to Pushgateway.</li>
+<li>Prometheus scrapes metrics from Pushgateway instead of directly from the short-lived job.</li>
+</ul>
+</li>
+<li>Streaming Behavior<!-- -->
+<ul>
+<li>Metrics are not pushed per token, but only once per full completion.</li>
+<li>This reduces metric noise and keeps the tracking efficient.</li>
+</ul>
+</li>
+<li>Loki for Completion Logs<!-- -->
+<ul>
+<li>Completion events are logged into Loki.</li>
+<li>This provides visibility into individual requests, helpful for debugging and tracing.</li>
+</ul>
+</li>
+<li>Grafana Dashboards<!-- -->
+<ul>
+<li>Visualizes both usage metrics (from Prometheus) and event logs (from Loki).</li>
+<li>Enables monitoring of latency, request volume, and real-time logs in one interface.</li>
+</ul>
+</li>
+</ul>
+<p>See below for the same demo video as <a href="https://nicholas-goh.com/blog/monitoring-and-observability#demo">above</a>.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="grafana-demo">Grafana Demo<a href="https://nicholas-goh.com/blog/monitoring-and-observability#grafana-demo" class="hash-link" aria-label="Direct link to Grafana Demo" title="Direct link to Grafana Demo">​</a></h4>
+<div style="width:640px;height:360px"></div>
+<br>
+<p>The Loki logs demoed at the end of the video provide a concise overview of input, output, and the project environment. However, I found that I need more observability into what's happening between input and output. Specifically, I should be able to see the internal routing, such as how the supervisor receives the prompt, delegates it to workers, and how they solve it using tools if needed.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="tracing-llm-observability">Tracing: LLM Observability<a href="https://nicholas-goh.com/blog/monitoring-and-observability#tracing-llm-observability" class="hash-link" aria-label="Direct link to Tracing: LLM Observability" title="Direct link to Tracing: LLM Observability">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="langsmith-dynamic-tracing-static-public-sharing">Langsmith: Dynamic Tracing, Static Public Sharing<a href="https://nicholas-goh.com/blog/monitoring-and-observability#langsmith-dynamic-tracing-static-public-sharing" class="hash-link" aria-label="Direct link to Langsmith: Dynamic Tracing, Static Public Sharing" title="Direct link to Langsmith: Dynamic Tracing, Static Public Sharing">​</a></h3>
+<p>I previously used Langsmith due to its minimal setup, which only requires an API key.</p>
+<p>The native dashboard provides valuable features, including:</p>
+<ul>
+<li>Tracing each LLM call.</li>
+<li>Maintaining a node hierarchy, making it clear what each supervisor or worker receives as input and output.</li>
+<li>Displaying the latency and cost of each node.</li>
+</ul>
+<p>These features significantly aided my development and debugging process by:</p>
+<ul>
+<li>Helping me pinpoint where prompt engineering issues occurred.</li>
+<li>Identifying potential optimizations for nodes and prompts to reduce processing time.</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="langsmith-demo">Langsmith Demo<a href="https://nicholas-goh.com/blog/monitoring-and-observability#langsmith-demo" class="hash-link" aria-label="Direct link to Langsmith Demo" title="Direct link to Langsmith Demo">​</a></h4>
+<div style="width:640px;height:360px"></div>
+<br>
+<p>As previously mentioned, Langsmith does not offer a public-facing interactive dashboard. In earlier blog posts, I shared static snapshots of traces as a workaround. Below, I explore one solution for exposing a public-facing interactive dashboard to enhance observability.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="langfuse-dynamic-tracing-with-public-dashboard">Langfuse: Dynamic Tracing with Public Dashboard<a href="https://nicholas-goh.com/blog/monitoring-and-observability#langfuse-dynamic-tracing-with-public-dashboard" class="hash-link" aria-label="Direct link to Langfuse: Dynamic Tracing with Public Dashboard" title="Direct link to Langfuse: Dynamic Tracing with Public Dashboard">​</a></h3>
+<p><strong>Langfuse offers many features similar to Langsmith, with several additional enhancements:</strong></p>
+<p><strong>Interactive flow diagram</strong>:</p>
+<ul>
+<li>Visualizes the execution flow between nodes, making it easier to understand complex call chains at a glance.</li>
+</ul>
+<p><strong>Clickable nodes</strong>:</p>
+<ul>
+<li>Each node in the diagram is interactive—clicking on one navigates to its position in the node hierarchy.</li>
+</ul>
+<p><strong>Detailed node insights</strong>:</p>
+<ul>
+<li>Upon selecting a node, Langfuse provides detailed information such as:<!-- -->
+<ul>
+<li>Inputs and outputs</li>
+<li>Execution latency and associated cost</li>
+</ul>
+</li>
+</ul>
+<p>Furthermore, I can expose a public-facing interactive dashboard via a demo account.</p>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="langfuse-demo">Langfuse Demo<a href="https://nicholas-goh.com/blog/monitoring-and-observability#langfuse-demo" class="hash-link" aria-label="Direct link to Langfuse Demo" title="Direct link to Langfuse Demo">​</a></h4>
+<div style="width:640px;height:360px"></div>]]></content:encoded>
+            <category>llm-monitoring</category>
+            <category>llm-observability</category>
+        </item>
         <item>
             <title><![CDATA[Customer Service Automation]]></title>
             <link>https://nicholas-goh.com/blog/customer-service-automation</link>
             <guid>https://nicholas-goh.com/blog/customer-service-automation</guid>
             <pubDate>Sat, 01 Mar 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Introduction]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/customer-service-automation#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+            <description><![CDATA[Demo]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/customer-service-automation#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
+<p>Check out the <a href="https://nicholas-goh.com/blog/reducing-cloud-bill" target="_blank" rel="noopener noreferrer">demo</a> before I dive into the blog!</p>
+<div style="width:640px;height:360px"></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/customer-service-automation#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>In this blog, I explore how a complex problem with moving parts can be solved, by having it broken down into smaller problems to be solved—automatically.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="ais-impact-aligning-tech-with-strategy">AI’s Impact: Aligning Tech with Strategy<a href="https://nicholas-goh.com/blog/customer-service-automation#ais-impact-aligning-tech-with-strategy" class="hash-link" aria-label="Direct link to AI’s Impact: Aligning Tech with Strategy" title="Direct link to AI’s Impact: Aligning Tech with Strategy">​</a></h2>
 <p>Following from previous blog, suppose the (manual, semi automatic or automatic) ingestion of data from multiple service providers is done. How can a system answer users' queries? First lets group some possible queries into categories.</p>
@@ -54,9 +267,7 @@
 <li>Notify the user if the slot is unavailable and suggest the next available time.</li>
 </ul>
 <!-- -->
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/customer-service-automation#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
-<p>Check out the <a href="https://nicholas-goh.com/use-cases/customer-service/ui" target="_blank" rel="noopener noreferrer">demo</a> before we explore the challenges, technical details, and key insights.</p>
-<div style="width:640px;height:360px"></div>
+<p>Lets explore the challenges, technical details, and key insights.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="design-choices">Design Choices<a href="https://nicholas-goh.com/blog/customer-service-automation#design-choices" class="hash-link" aria-label="Direct link to Design Choices" title="Direct link to Design Choices">​</a></h2>
 <p>In the <a href="https://nicholas-goh.com/blog/etl-automation">previous blog</a>, prebuilt LangChain agents handled most of the orchestration. However, this no longer applies since no existing prebuilt solution fully fits this use case. A custom approach is needed to orchestrate how the Service and Booking assistants work together.</p>
 <p>A key consideration is deciding what logic belongs in prompts versus code:</p>
@@ -118,7 +329,7 @@
 <p>Here are the sample traces from the demo.</p>
 <ul>
 <li><a href="https://smith.langchain.com/public/7e8dd233-a875-48ec-a26c-6d5abab0d81e/r" target="_blank" rel="noopener noreferrer">do u mop kitchen and cabinets</a></li>
-<li><a href="https://smith.langchain.com/public/b5221550-842c-4814-bbd1-952aeef47497/r" target="_blank" rel="noopener noreferrer">toilet how much and jan 20 9am available?</a></li>
+<li><a href="https://smith.langchain.com/public/b395849c-eaa5-4307-a332-d72d5862bf21/r" target="_blank" rel="noopener noreferrer">toilet how much and jan 20 9am available?</a></li>
 <li><a href="https://smith.langchain.com/public/1b413373-1d00-4985-8c98-1d5f456c967f/r" target="_blank" rel="noopener noreferrer">jan 20 12pm can</a></li>
 </ul>]]></content:encoded>
             <category>agentic-workflow</category>
@@ -129,8 +340,11 @@
             <link>https://nicholas-goh.com/blog/etl-automation</link>
             <guid>https://nicholas-goh.com/blog/etl-automation</guid>
             <pubDate>Sat, 01 Feb 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[Introduction]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/etl-automation#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+            <description><![CDATA[Demo]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/etl-automation#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
+<p>Check out the <a href="https://nicholas-goh.com/blog/reducing-cloud-bill" target="_blank" rel="noopener noreferrer">demo</a> before I dive into the blog!</p>
+<div style="width:640px;height:360px"></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/etl-automation#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>In this blog, I explore how automation simplifies problem-solving by testing AI’s ability to break tasks into subproblems. This use case worked with a single agent, but more complex problems require multi-agent orchestration—covered in the <a href="https://nicholas-goh.com/blog/customer-service-automation">next blog</a>.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="ais-business-impact-aligning-technology-with-strategy">AI’s Business Impact: Aligning Technology with Strategy<a href="https://nicholas-goh.com/blog/etl-automation#ais-business-impact-aligning-technology-with-strategy" class="hash-link" aria-label="Direct link to AI’s Business Impact: Aligning Technology with Strategy" title="Direct link to AI’s Business Impact: Aligning Technology with Strategy">​</a></h2>
 <p>Data ingestion is often a bottleneck for businesses dealing with multiple service providers. The challenge isn't just handling large volumes of data—it’s managing provider-specific schemas, adapting to schema changes, and maintaining consistency across updates. Manually handling these variations is tedious, error-prone, and difficult to scale.</p>
@@ -146,9 +360,7 @@
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-importance-of-orchestration">The Importance of Orchestration<a href="https://nicholas-goh.com/blog/etl-automation#the-importance-of-orchestration" class="hash-link" aria-label="Direct link to The Importance of Orchestration" title="Direct link to The Importance of Orchestration">​</a></h3>
 <p>LLMs generate text but cannot execute code. To incorporate execution, they must delegate tasks to external tools and refine responses based on the results. The diagram below illustrates this orchestration. Can this be achieved using prebuilt solutions, or does it require a custom implementation?</p>
 <!-- -->
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/etl-automation#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
-<p>Check out the <a href="https://nicholas-goh.com/use-cases/etl-automation/ui" target="_blank" rel="noopener noreferrer">demo</a> before we explore the challenges, technical details, and key insights.</p>
-<div style="width:640px;height:360px"></div>
+<p>Lets explore the challenges, technical details, and key insights.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="navigating-trade-offs-in-ai-system-design">Navigating Trade-offs in AI System Design<a href="https://nicholas-goh.com/blog/etl-automation#navigating-trade-offs-in-ai-system-design" class="hash-link" aria-label="Direct link to Navigating Trade-offs in AI System Design" title="Direct link to Navigating Trade-offs in AI System Design">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="prebuilt-agent">Prebuilt Agent<a href="https://nicholas-goh.com/blog/etl-automation#prebuilt-agent" class="hash-link" aria-label="Direct link to Prebuilt Agent" title="Direct link to Prebuilt Agent">​</a></h3>
 <p>Langchain provides a <a href="https://github.com/langchain-ai/langchain-experimental/blob/libs/experimental/v0.3.4/libs/experimental/langchain_experimental/agents/agent_toolkits/pandas/base.py#L152" target="_blank" rel="noopener noreferrer">prebuilt</a> CSV Agent. At first glance, it seems to solve the problem of orchestration for me, however, on closer inspection, there are some concerns.</p>
@@ -240,8 +452,11 @@
             <link>https://nicholas-goh.com/blog/agentic-rag</link>
             <guid>https://nicholas-goh.com/blog/agentic-rag</guid>
             <pubDate>Thu, 07 Nov 2024 00:00:00 GMT</pubDate>
-            <description><![CDATA[Introduction]]></description>
-            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/agentic-rag#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
+            <description><![CDATA[Demo]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/agentic-rag#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
+<p>Feel free to check out the demo <a href="https://nicholas-goh.com/blog/reducing-cloud-bill" target="_blank" rel="noopener noreferrer">here</a> before I dive into the blog!</p>
+<div style="width:640px;height:360px"></div>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="introduction">Introduction<a href="https://nicholas-goh.com/blog/agentic-rag#introduction" class="hash-link" aria-label="Direct link to Introduction" title="Direct link to Introduction">​</a></h2>
 <p>It has been a while since I last shared my thoughts on designing and building an Agentic RAG system in my previous <a href="https://medium.com/@gohn0004/agentic-rag-36d38b20fb1f" target="_blank" rel="noopener noreferrer">Medium Blog</a>. In this post, I aim to first discuss the inspiration behind building the system and then delve into the challenges I encountered, along with potential future hurdles.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="inspiration">Inspiration<a href="https://nicholas-goh.com/blog/agentic-rag#inspiration" class="hash-link" aria-label="Direct link to Inspiration" title="Direct link to Inspiration">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-role-of-rag">The Role of RAG<a href="https://nicholas-goh.com/blog/agentic-rag#the-role-of-rag" class="hash-link" aria-label="Direct link to The Role of RAG" title="Direct link to The Role of RAG">​</a></h3>
@@ -293,9 +508,7 @@
 </blockquote>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>This is a straightforward routing problem, so a simple prompt will do.</p><p>For a more complex case that requires advanced prompts and workflows, check out <a href="https://nicholas-goh.com/blog/etl-automation">this blog</a>.</p></div></div>
 <p>While multiple approaches exist, this application aims to minimize complexity while maintaining effectiveness, aligning with Occam’s Razor. The future sections will discuss potential optimizations, trade-offs, and metrics for evaluating success.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="demo">Demo<a href="https://nicholas-goh.com/blog/agentic-rag#demo" class="hash-link" aria-label="Direct link to Demo" title="Direct link to Demo">​</a></h2>
-<p>Feel free to check out the demo <a href="https://nicholas-goh.com/ui" target="_blank" rel="noopener noreferrer">here</a> before I dive into the challenges, technical details, and implementations!</p>
-<div style="width:640px;height:360px"></div>
+<p>Lets dive into the challenges, technical details, and implementations!</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="challenges-encountered">Challenges Encountered<a href="https://nicholas-goh.com/blog/agentic-rag#challenges-encountered" class="hash-link" aria-label="Direct link to Challenges Encountered" title="Direct link to Challenges Encountered">​</a></h2>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="production-challenges-in-an-agentic-rag-system">Production Challenges in an Agentic RAG System<a href="https://nicholas-goh.com/blog/agentic-rag#production-challenges-in-an-agentic-rag-system" class="hash-link" aria-label="Direct link to Production Challenges in an Agentic RAG System" title="Direct link to Production Challenges in an Agentic RAG System">​</a></h3>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>warning</div><div class="admonitionContent_BuS1"><p>Agents = LLM + Tool?</p><p>RAG = LLM + Vectorstore?</p></div></div>
