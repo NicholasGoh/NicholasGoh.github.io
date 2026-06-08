@@ -37,7 +37,7 @@ const config: Config = {
   themes: ["@docusaurus/theme-mermaid"],
 
   title: "Nicholas Goh",
-  tagline: "AI Full Stack Engineer",
+  tagline: "AI Engineer → AI Assurance",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here

@@ -13,32 +13,18 @@ import type { Props as Recommendation } from "../components/Recommendation";
 
 export type RecommendationItem = Recommendation & {
   showOnHomepage: boolean;
+  highlight: string;
+  position: string;
 };
 
 const TWEETS: RecommendationItem[] = [
   {
-    url: "https://www.linkedin.com/in/alvinphang/",
-    name: "Alvin Phang",
-    date: "Apr 22, 2025",
-    content: (
-      <>
-        I had the pleasure of working with Nicholas, and I’m genuinely impressed
-        by their growth and contributions. A fast learner with a great attitude,
-        Nicholas quickly ramped up on complex topics like LLM microservices and
-        took initiative to implement practical solutions that improved team
-        efficiency and led to meaningful cost savings. On top of that, Nicholas
-        is friendly, collaborative, and always a joy to work with — a great
-        asset to any team.
-      </>
-    ),
-    showOnHomepage: true,
-    githubUsername: "",
-    staticProfileImage: "alvinphang",
-  },
-  {
-    url: "https://www.linkedin.com/in/hui-ning-joo-9a5141168/",
+    url: "https://www.linkedin.com/in/hui-ning-joo-9a5141168/details/recommendations/",
     name: "Hui Ning Joo",
+    position: "Team Lead, Principal Software Engineer",
     date: "Apr 16, 2025",
+    highlight:
+      "Independently dove into AI agents and delivered a working demo — curiosity and drive stand out.",
     content: (
       <>
         I had the opportunity to work with Nicholas both as his lead for a few
@@ -57,9 +43,34 @@ const TWEETS: RecommendationItem[] = [
     githubUsername: "",
   },
   {
-    url: "https://www.linkedin.com/in/leonseet/",
+    url: "https://www.linkedin.com/in/alvinphang/details/recommendations/",
+    name: "Alvin Phang",
+    position: "Team Lead, Senior Software Engineer",
+    date: "Apr 22, 2025",
+    highlight:
+      "A fast learner who took initiative and improved team efficiency — a great asset to any team.",
+    content: (
+      <>
+        I had the pleasure of working with Nicholas, and I’m genuinely impressed
+        by their growth and contributions. A fast learner with a great attitude,
+        Nicholas quickly ramped up on complex topics like LLM microservices and
+        took initiative to implement practical solutions that improved team
+        efficiency and led to meaningful cost savings. On top of that, Nicholas
+        is friendly, collaborative, and always a joy to work with — a great
+        asset to any team.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "",
+    staticProfileImage: "alvinphang",
+  },
+  {
+    url: "https://www.linkedin.com/in/leonseet/details/recommendations/",
     name: "Leon Seet",
+    position: "AI Engineer",
     date: "Apr 13, 2025",
+    highlight:
+      "Built a deployable LLM microservice for on-prem — tangible time and cost savings for the team.",
     content: (
       <>
         I highly recommend Nicholas based on our time working together. He
@@ -80,7 +91,10 @@ const TWEETS: RecommendationItem[] = [
   {
     url: "https://chinholin.com",
     name: "Chin-Ho Lin",
+    position: "Software Engineer",
     date: "Apr 09, 2025",
+    highlight:
+      "Quickly identifies issues, researches thoroughly, and finds solutions to keep projects moving.",
     content: (
       <>
         Nicholas is a fast learner who quickly identifies issues, conducts

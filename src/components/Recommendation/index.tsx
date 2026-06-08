@@ -1,21 +1,16 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-import React, { type ReactNode } from "react";
-
+import React, { useState, type ReactNode } from "react";
 import clsx from "clsx";
-
 import Link from "@docusaurus/Link";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import styles from "./styles.module.css";
 
 export interface Props {
   url: string;
   name: string;
+  position: string;
   content: ReactNode;
+  highlight: string;
   date: string;
   githubUsername: string;
   staticProfileImage: string | null;
@@ -24,11 +19,15 @@ export interface Props {
 export default function Recommendation({
   url,
   name,
+  position,
   content,
+  highlight,
   date,
   githubUsername,
   staticProfileImage,
 }: Props): ReactNode {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <div className={clsx("card", styles.recommendation)}>
       <div className="card__header">
@@ -51,11 +50,44 @@ export default function Recommendation({
             <Link to={url}>
               <strong className="avatar__name">{name}</strong>
             </Link>
+            <small className={styles.position}>{position}</small>
           </div>
         </div>
       </div>
 
-      <div className={clsx("card__body", styles.recommendation)}>{content}</div>
+      <div className="card__body">
+        <blockquote className={styles.highlight}>{highlight}</blockquote>
+
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              key="full"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+              className={styles.fullContent}
+            >
+              <p className={styles.fullText}>{content}</p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <button
+          className={styles.toggleButton}
+          onClick={() => setExpanded((v) => !v)}
+          aria-expanded={expanded}
+        >
+          <span>{expanded ? "Show less" : "Read more"}</span>
+          <motion.span
+            animate={{ rotate: expanded ? 180 : 0 }}
+            transition={{ duration: 0.25 }}
+            className={styles.chevron}
+          >
+            <ChevronDown size={14} />
+          </motion.span>
+        </button>
+      </div>
 
       <div className="card__footer">
         <div
