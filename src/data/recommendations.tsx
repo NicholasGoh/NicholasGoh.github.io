@@ -19,28 +19,6 @@ export type RecommendationItem = Recommendation & {
 
 const TWEETS: RecommendationItem[] = [
   {
-    url: "https://www.linkedin.com/in/alvinphang/details/recommendations/",
-    name: "Alvin Phang",
-    position: "Team Lead, Senior Software Engineer",
-    date: "Apr 22, 2025",
-    highlight:
-      "A fast learner who took initiative and improved team efficiency — a great asset to any team.",
-    content: (
-      <>
-        I had the pleasure of working with Nicholas, and I’m genuinely impressed
-        by their growth and contributions. A fast learner with a great attitude,
-        Nicholas quickly ramped up on complex topics like LLM microservices and
-        took initiative to implement practical solutions that improved team
-        efficiency and led to meaningful cost savings. On top of that, Nicholas
-        is friendly, collaborative, and always a joy to work with — a great
-        asset to any team.
-      </>
-    ),
-    showOnHomepage: true,
-    githubUsername: "",
-    staticProfileImage: "alvinphang",
-  },
-  {
     url: "https://www.linkedin.com/in/hui-ning-joo-9a5141168/details/recommendations/",
     name: "Hui Ning Joo",
     position: "Team Lead, Principal Software Engineer",
@@ -63,6 +41,28 @@ const TWEETS: RecommendationItem[] = [
     ),
     showOnHomepage: true,
     githubUsername: "",
+  },
+  {
+    url: "https://www.linkedin.com/in/alvinphang/details/recommendations/",
+    name: "Alvin Phang",
+    position: "Team Lead, Senior Software Engineer",
+    date: "Apr 22, 2025",
+    highlight:
+      "A fast learner who took initiative and improved team efficiency — a great asset to any team.",
+    content: (
+      <>
+        I had the pleasure of working with Nicholas, and I’m genuinely impressed
+        by their growth and contributions. A fast learner with a great attitude,
+        Nicholas quickly ramped up on complex topics like LLM microservices and
+        took initiative to implement practical solutions that improved team
+        efficiency and led to meaningful cost savings. On top of that, Nicholas
+        is friendly, collaborative, and always a joy to work with — a great
+        asset to any team.
+      </>
+    ),
+    showOnHomepage: true,
+    githubUsername: "",
+    staticProfileImage: "alvinphang",
   },
   {
     url: "https://www.linkedin.com/in/leonseet/details/recommendations/",
