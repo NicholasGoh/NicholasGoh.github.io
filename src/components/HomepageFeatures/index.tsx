@@ -35,7 +35,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: "AI Assurance",
-    Svg: require("@site/static/img/undraw_cloud_hosting.svg").default,
+    Svg: require("@site/static/img/undraw_all_checked.svg").default,
     description: (
       <>
         Evaluates, adversarially probes, and assures clients' agentic systems
