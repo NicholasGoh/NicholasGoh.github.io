@@ -16,29 +16,31 @@ const FeatureList: FeatureItem[] = [
     Svg: require("@site/static/img/undraw_predictive_analytics.svg").default,
     description: (
       <>
-        A strong foundation in data science and AI, with expertise in machine
-        learning and data-driven solutions, now informing my evolving focus.
+        B.Sci in Data Science & AI (NTU). A rigorous foundation in machine
+        learning, statistics, and AI systems — the lens through which I build
+        and evaluate production AI.
       </>
     ),
   },
   {
-    title: "Agentic Orchestration",
+    title: "Agentic Systems",
     Svg: require("@site/static/img/undraw_software_engineer.svg").default,
     description: (
       <>
-        Experienced in designing and implementing agentic workflows, leveraging
-        LLMs to enable autonomous decision-making and collaborative task
-        execution.
+        Designs and ships agentic systems in industry — from LLM microservices
+        to multi-agent orchestration. Extends this into personal projects
+        exploring the edges of what agents can do.
       </>
     ),
   },
   {
-    title: "Cloud Orchestration",
+    title: "AI Assurance",
     Svg: require("@site/static/img/undraw_cloud_hosting.svg").default,
     description: (
       <>
-        Skilled in provisioning and managing cloud resources using AWS and
-        Terraform Infrastructure as Code (IaC)
+        Evaluates, adversarially probes, and assures clients' agentic systems
+        across AI-specific risks and security dimensions. Recommends
+        improvements → clients remediate → I verify and close the loop.
       </>
     ),
   },

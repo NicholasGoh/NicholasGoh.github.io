@@ -9,6 +9,7 @@ import Recommendations, {
   type RecommendationItem,
 } from "@site/src/data/recommendations";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
+import DeepAssureShowcase from "@site/src/components/DeepAssureShowcase";
 import Heading from "@theme/Heading";
 import { motion } from "framer-motion";
 import { ExternalLink, Download } from "lucide-react";
@@ -139,6 +140,7 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
+        <DeepAssureShowcase />
         <RecommendationsSection />
       </main>
     </Layout>
