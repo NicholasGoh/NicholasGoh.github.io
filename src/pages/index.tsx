@@ -61,7 +61,10 @@ function HomepageHeader() {
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               View Resume
-              <ExternalLink size={18} style={{ marginLeft: "0.4em", verticalAlign: "middle" }} />
+              <ExternalLink
+                size={18}
+                style={{ marginLeft: "0.4em", verticalAlign: "middle" }}
+              />
             </motion.a>
 
             <motion.a
@@ -76,7 +79,10 @@ function HomepageHeader() {
               }}
               transition={{ delay: 0.7, duration: 0.6 }}
             >
-              <Download size={18} style={{ marginRight: "0.4em", verticalAlign: "middle" }} />
+              <Download
+                size={18}
+                style={{ marginRight: "0.4em", verticalAlign: "middle" }}
+              />
               Download Resume
             </motion.a>
           </div>
