@@ -8,6 +8,7 @@ import styles from "./styles.module.css";
 export interface Props {
   url: string;
   name: string;
+  position: string;
   content: ReactNode;
   highlight: string;
   date: string;
@@ -18,6 +19,7 @@ export interface Props {
 export default function Recommendation({
   url,
   name,
+  position,
   content,
   highlight,
   date,
@@ -48,14 +50,13 @@ export default function Recommendation({
             <Link to={url}>
               <strong className="avatar__name">{name}</strong>
             </Link>
+            <small className={styles.position}>{position}</small>
           </div>
         </div>
       </div>
 
       <div className="card__body">
-        <blockquote className={styles.highlight}>
-          {highlight}
-        </blockquote>
+        <blockquote className={styles.highlight}>{highlight}</blockquote>
 
         <AnimatePresence initial={false}>
           {expanded && (
@@ -89,7 +90,9 @@ export default function Recommendation({
       </div>
 
       <div className="card__footer">
-        <div className={clsx(styles.recommendationMeta, styles.recommendationDate)}>
+        <div
+          className={clsx(styles.recommendationMeta, styles.recommendationDate)}
+        >
           {date}
         </div>
       </div>
