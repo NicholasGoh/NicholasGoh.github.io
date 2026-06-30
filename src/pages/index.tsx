@@ -12,7 +12,7 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import DeepAssureShowcase from "@site/src/components/DeepAssureShowcase";
 import Heading from "@theme/Heading";
 import { motion } from "framer-motion";
-import { ExternalLink, Download } from "lucide-react";
+import { Download } from "lucide-react";
 
 import styles from "./index.module.css";
 
@@ -52,33 +52,15 @@ function HomepageHeader() {
           <div className={styles.buttons}>
             <motion.a
               className="button button--secondary button--lg"
-              data-umami-event="View Resume"
-              href="https://flowcv.com/resume/hs2snijcw2oj"
-              target="_blank"
-              variants={{
-                hidden: { opacity: 0, y: 20 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              View Resume
-              <ExternalLink
-                size={18}
-                style={{ marginLeft: "0.4em", verticalAlign: "middle" }}
-              />
-            </motion.a>
-
-            <motion.a
-              className="button button--secondary button--lg"
               data-umami-event="Download Resume"
-              href="Nicholas-Goh-Resume.pdf"
+              href="Nicholas-Goh-Resume.docx"
               target="_blank"
               download="Nicholas-Goh-Resume"
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: { opacity: 1, y: 0 },
               }}
-              transition={{ delay: 0.7, duration: 0.6 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
             >
               <Download
                 size={18}
